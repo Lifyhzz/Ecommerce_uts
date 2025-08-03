@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Produk</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #2d3436;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our product</h1>
+  <div class="container">
+    {% for p in produk %}
+    <div class="card">
+      <img src="{{ p[2] }}" alt="{{ p[0] }}">
+      <h2>{{ p[0] }}</h2>
+      <p>Harga: Rp {{ "{:,.0f}".format(p[1]) }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
